@@ -2,6 +2,7 @@
   "name": "gcyr_ui",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://gcy2312.github.io/gcyr_ui",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -23,7 +24,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "predeploy": "npm run build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": [
@@ -67,6 +70,7 @@
     "@types/styled-components": "^5.1.26",
     "autoprefixer": "^10.4.13",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.19",
     "prop-types": "^15.8.1",
     "tailwindcss": "^3.2.4",
