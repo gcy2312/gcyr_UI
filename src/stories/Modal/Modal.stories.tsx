@@ -4,7 +4,7 @@ import Modal, { ModalProps } from "./Modal";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 export default {
-  title: "Design System/Modal",
+  title: "Design/Modal",
   component: Modal,
 } as Meta;
 
