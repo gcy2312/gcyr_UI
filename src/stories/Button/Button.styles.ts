@@ -7,7 +7,7 @@ export const BasicButton = styled.button<{
   display: inline-flex;
   align-items: center;
   vertical-align: baseline;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
   cursor: pointer;
