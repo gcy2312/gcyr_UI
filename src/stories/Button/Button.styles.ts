@@ -6,7 +6,7 @@ export const BasicButton = styled.button<{
 }>`
   display: inline-flex;
   align-items: center;
-  vertical-align: middle;
+  vertical-align: baseline;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.25rem;
@@ -26,7 +26,7 @@ export const BasicButton = styled.button<{
   ${({ isLoading }) => isLoading && `opacity: 0.7; cursor: default`}
   ${({ iconOnly }) =>
     iconOnly === true &&
-    `padding-left: 0.5rem padding-top: 0.375rem; padding-bottom: 0.375rem; padding-right: 0.125rem`};
+    `padding-left: 0.275rem padding-top: 0.275rem; padding-bottom: 0.275rem; padding-right: 0rem`};
 `;
 
 export const ErrorButton = styled(BasicButton)`

@@ -18,7 +18,7 @@ const Button = (props: ButtonProps): JSX.Element => {
   const ButtonIcon = () => {
     if (isLoading)
       return (
-        <span className="h-5 w-5 text-gray-400 transition-all">
+        <span className="h-4 w-4 -ml-0.5 mr-1.5 transition-all">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -44,7 +44,7 @@ const Button = (props: ButtonProps): JSX.Element => {
 
     if (Icon)
       return (
-        <span className="h-5 w-5 text-gray-400 transition-all">{Icon}</span>
+        <span className="h-5 w-5 -ml-0.5 mr-1.5 transition-all">{Icon}</span>
       );
 
     return <></>;
