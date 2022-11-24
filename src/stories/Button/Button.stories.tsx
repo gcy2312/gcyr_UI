@@ -1,41 +1,89 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React, { useState } from "react";
+import { Meta } from "@storybook/react";
+import Button, { ButtonProps } from "./Button";
+import {
+  DocumentArrowUpIcon,
+  ExclamationTriangleIcon,
+  PlusIcon,
+  XCircleIcon,
+} from "@heroicons/react/24/solid";
+import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 
-import { Button } from './Button';
-
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: "Design/Button",
   component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-} as ComponentMeta<typeof Button>;
+} as Meta;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  primary: true,
-  label: 'Button',
+export const ButtonPrimary = (args: ButtonProps) => {
+  return (
+    <Button
+      id={""}
+      onClick={() => alert("click")}
+      error={false}
+      text="button"
+      Icon={<PlusIcon />}
+    />
+  );
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
+export const ButtonSecondary = (args: ButtonProps) => {
+  return (
+    <Button
+      id={""}
+      onClick={() => alert("click")}
+      error={false}
+      text="button"
+      type="secondary"
+    />
+  );
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
+export const ButtonError = (args: ButtonProps) => {
+  return (
+    <Button
+      id={""}
+      onClick={() => alert("click")}
+      error={true}
+      Icon={<ExclamationCircleIcon />}
+      text="Error"
+      type="error"
+    />
+  );
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
+export const ButtonIcon = (args: ButtonProps) => {
+  return (
+    <Button
+      id={""}
+      onClick={() => alert("click")}
+      error={false}
+      text=""
+      type="secondary"
+      iconOnly={true}
+      Icon={<DocumentArrowUpIcon />}
+    />
+  );
+};
+
+export const LoadingButton = (args: ButtonProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleClick = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  };
+  return (
+    <Button
+      id={""}
+      onClick={() => handleClick()}
+      error={false}
+      text="Click Me"
+      loadingText="Please wait"
+      isLoading={isLoading}
+      type="primary"
+      Icon={<XCircleIcon />}
+    />
+  );
 };
