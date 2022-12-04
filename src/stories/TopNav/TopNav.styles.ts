@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 
 export const NavLink = styled.a<{
   active: boolean
-  defaultTab: string
+  defaultLink: string
 }>`
   background-color: transparent;
   color: rgb(75 85 99);

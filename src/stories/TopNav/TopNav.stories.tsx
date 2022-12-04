@@ -1,16 +1,7 @@
 import React, { useState } from 'react'
 import { Meta } from '@storybook/react'
+import { Menu } from '@headlessui/react'
 import TopNav, { Link, TopNavProps } from './TopNav'
-import { getEventListeners } from 'events'
-import EmptyState from '../EmptyState/EmptyState'
-import {
-  ArchiveBoxIcon,
-  ArrowRightIcon,
-  Cog8ToothIcon,
-  PlusIcon,
-} from '@heroicons/react/24/solid'
-import Button from '../Button/Button'
-import { UserCircleIcon } from '@heroicons/react/24/outline'
 
 export default {
   title: 'Navigation/Top Navigation',
@@ -22,10 +13,15 @@ export const TopNavExample = (args: TopNavProps) => {
     { id: 'profileTab', text: 'Profile' },
     { id: 'accountTab', text: 'Account' },
   ]
-  return <TopNav defaultTab={'Profile'} links={links} />
+  return <TopNav defaultLink={'Profile'} links={links} />
 }
 
 export const TopNavDropdownExample = (args: TopNavProps) => {
+  const dLinks: Link[] = [
+    { id: 'account', text: 'Account Settings' },
+    { id: 'test', text: 'Support' },
+    { id: 'signOut', text: 'Sign Out' },
+  ]
   const links: Link[] = [
     { id: 'profileTab', text: 'Profile' },
     { id: 'accountTab', text: 'Account' },
@@ -33,11 +29,24 @@ export const TopNavDropdownExample = (args: TopNavProps) => {
       id: 'optionsTab',
       text: 'Options',
       dropdown: true,
-      dropdownLinks: [
-        { id: 'account', text: 'Account Settings' },
-        { id: 'test', text: 'Support' },
-      ],
+
+      dropdownLinks: (
+        <Menu.Items className="absolute left-0 z-10 mt-1 w-56 origin-top-left rounded-lg bg-transparent shadow-md border ring-0 border-opacity-10 focus:outline-none">
+          {dLinks?.map((d, i) => (
+            <Menu.Item>
+              <a
+                href={d.href}
+                key={i}
+                id={d.id}
+                className="block cursor-pointer px-4 py-2 text-sm bg-white  hover:bg-gray-200"
+              >
+                {d.text}
+              </a>
+            </Menu.Item>
+          ))}
+        </Menu.Items>
+      ),
     },
   ]
-  return <TopNav defaultTab={'Profile'} links={links} />
+  return <TopNav defaultLink={'Profile'} links={links} />
 }

@@ -6,9 +6,9 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import * as S from './TopNav.styles'
 
 const TopNav = (props: TopNavProps): JSX.Element => {
-  const { links, handleClick, defaultTab } = props
+  const { links, defaultLink } = props
 
-  const [active, setActive] = useState(defaultTab)
+  const [active, setActive] = useState(defaultLink)
 
   const activate = (text: string) => {
     setActive(text)
@@ -38,22 +38,7 @@ const TopNav = (props: TopNavProps): JSX.Element => {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute left-0 z-10 mt-1 w-56 origin-top-left rounded-lg bg-transparent shadow-md border ring-0 border-opacity-10 focus:outline-none">
-                {l.dropdownLinks?.map((d, i) => (
-                  <Menu.Item>
-                    <a
-                      href={d.href}
-                      id={d.id}
-                      onClick={() => {
-                        handleClick && handleClick(d.text)
-                      }}
-                      className="block cursor-pointer px-4 py-2 text-sm bg-white  hover:bg-gray-200"
-                    >
-                      {d.text}
-                    </a>
-                  </Menu.Item>
-                ))}
-              </Menu.Items>
+              {l.dropdownLinks}
             </Transition>
           </Menu>
         ) : (
@@ -64,9 +49,8 @@ const TopNav = (props: TopNavProps): JSX.Element => {
             active={active === l.text}
             onClick={() => {
               activate(l.text)
-              handleClick && handleClick(l.text)
             }}
-            defaultTab={defaultTab}
+            defaultLink={defaultLink}
           >
             {l.Icon && <span className="h-5 w-5 mr-1">{l.Icon}</span>}
             {l.text}
@@ -89,13 +73,12 @@ export type Link = {
   text: string
   Icon?: React.ReactNode
   dropdown?: boolean
-  dropdownLinks?: DropdownLink[]
+  dropdownLinks?: React.ReactNode
 }
 
 export interface TopNavProps {
   links: Link[]
-  handleClick?: (text: string) => React.MouseEventHandler<HTMLLIElement> | void
-  defaultTab: string
+  defaultLink: string
 }
 
 export default TopNav
