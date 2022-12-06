@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import { Meta } from "@storybook/react";
-import Modal, { ModalProps } from "./Modal";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+import { useState } from 'react'
+import { Meta } from '@storybook/react'
+import Modal, { ModalProps } from './Modal'
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 export default {
-  title: "Design/Modal",
+  title: 'Design/Modal',
   component: Modal,
-} as Meta;
+} as Meta
 
 export const ModalExample = (args: ModalProps) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(true)
   return (
     <Modal
       open={open}
       setOpen={setOpen}
       showCloseButton={true}
       iconBg="bg-red-100"
-      id={""}
+      id={''}
       icon={<ExclamationTriangleIcon className="text-red-500" />}
       body={
         <p className="text-sm text-gray-500">
@@ -48,18 +48,18 @@ export const ModalExample = (args: ModalProps) => {
         </>
       }
     />
-  );
-};
+  )
+}
 
 export const ModalScrollExample = (args: ModalProps) => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(true)
   return (
     <Modal
       open={open}
       setOpen={setOpen}
       scrollBody={true}
       showCloseButton={true}
-      id={""}
+      id={''}
       body={
         <>
           <p>
@@ -107,5 +107,5 @@ export const ModalScrollExample = (args: ModalProps) => {
         </>
       }
     />
-  );
-};
+  )
+}

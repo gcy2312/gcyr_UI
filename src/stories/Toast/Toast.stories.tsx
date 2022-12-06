@@ -1,13 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Meta } from '@storybook/react'
 import Toast, { ToastProps } from './Toast'
-import {
-  CheckCircleIcon,
-  DocumentArrowUpIcon,
-  FolderIcon,
-  UserCircleIcon,
-  UserIcon,
-} from '@heroicons/react/24/outline'
+import { CheckCircleIcon, FolderIcon } from '@heroicons/react/24/outline'
 import profilePic from '../assets/Brad_Pitt_2019_by_Glenn_Francis.jpeg'
 import Button from '../Button/Button'
 

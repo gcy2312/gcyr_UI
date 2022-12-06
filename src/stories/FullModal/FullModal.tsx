@@ -1,14 +1,14 @@
-import React, { Fragment } from "react";
-import { Dialog, Transition } from "@headlessui/react";
-import * as S from "./FullModal.styles";
-import { XMarkIcon } from "@heroicons/react/24/solid";
+import React, { Fragment } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import * as S from './FullModal.styles'
+import { XMarkIcon } from '@heroicons/react/24/solid'
 
 const FullModal = (props: FullModalProps): JSX.Element => {
-  const { open, setOpen, id, title } = props;
-  const isMobile = window.innerWidth < 768 ? true : false;
+  const { open, setOpen, id, title } = props
+  const isMobile = window.innerWidth < 768 ? true : false
 
   return (
-    <Transition.Root show={open} as={"div"}>
+    <Transition.Root show={open} as={'div'}>
       <Dialog
         as="div"
         id={id}
@@ -93,23 +93,23 @@ const FullModal = (props: FullModalProps): JSX.Element => {
         </div>
       </Dialog>
     </Transition.Root>
-  );
-};
+  )
+}
 export interface FullModalProps {
-  id: string;
-  open: boolean;
-  setOpen: (state: boolean) => void;
-  title: React.ReactNode;
-  body: React.ReactNode;
-  actions?: React.ReactNode;
-  fullWidth: boolean;
+  id: string
+  open: boolean
+  setOpen: (state: boolean) => void
+  title: React.ReactNode
+  body: React.ReactNode
+  actions?: React.ReactNode
+  fullWidth: boolean
 }
 
 FullModal.defaultProps = {
   onClose: () => {
-    return;
+    return
   },
   fullWidth: false,
-};
+}
 
-export default FullModal;
+export default FullModal

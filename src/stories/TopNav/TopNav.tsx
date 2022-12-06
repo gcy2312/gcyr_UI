@@ -1,4 +1,3 @@
-import { array } from 'prop-types'
 import React, { useState, Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
@@ -21,9 +20,9 @@ const TopNav = (props: TopNavProps): JSX.Element => {
           <Menu as="div" className="relative inline-block text-left">
             <div>
               <Menu.Button className="inline-flex w-full items-center align-middle rounded-full mb-2 leading-4 bg-transparent px-2.5 py-1 text-sm font-medium text-gray-600 transition hover:bg-gray-200 focus:outline-none">
-                Options
+                {l.text}
                 <ChevronDownIcon
-                  className="-mr-1 ml-1 h-4 w-4"
+                  className="-mr-1.5 ml-1 h-5 w-5"
                   aria-hidden="true"
                 />
               </Menu.Button>
