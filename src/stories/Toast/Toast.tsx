@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react'
-import * as S from './Toast.styles'
-import { Dialog, Transition } from '@headlessui/react'
-import { CheckCircleIcon } from '@heroicons/react/24/outline'
-import Button from '../Button/Button'
+import { Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/solid'
+
+import * as S from './Toast.styles'
 
 const Toast = (props: ToastProps): JSX.Element => {
   const { id, open, setOpen, title, text, actions, Icon, avatar } = props

@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { Meta } from "@storybook/react";
-import FullModal, { FullModalProps } from "./FullModal";
+import { useState } from 'react'
+import { Meta } from '@storybook/react'
+import FullModal, { FullModalProps } from './FullModal'
 
 export default {
-  title: "Design/Full Page Modal",
+  title: 'Design/Full Page Modal',
   component: FullModal,
-} as Meta;
+} as Meta
 
 export const FullPageModal = (args: FullModalProps) => {
-  const [open, setOpen] = useState(true);
-  const isFullWidth = window.innerWidth < 768 ? true : false;
+  const [open, setOpen] = useState(true)
+  const isFullWidth = window.innerWidth < 768 ? true : false
   return (
     <FullModal
       open={open}
       setOpen={setOpen}
-      id={""}
+      id={''}
       fullWidth={isFullWidth}
       title={<p>Test</p>}
       actions={
@@ -38,17 +38,17 @@ export const FullPageModal = (args: FullModalProps) => {
         </p>
       }
     />
-  );
-};
+  )
+}
 
 export const MobileFullPageModal = (args: FullModalProps) => {
-  const [open, setOpen] = useState(true);
-  const isFullWidth = true;
+  const [open, setOpen] = useState(true)
+  const isFullWidth = true
   return (
     <FullModal
       open={open}
       setOpen={setOpen}
-      id={""}
+      id={''}
       fullWidth={isFullWidth}
       title={<p>Test</p>}
       actions={
@@ -70,5 +70,5 @@ export const MobileFullPageModal = (args: FullModalProps) => {
         </p>
       }
     />
-  );
-};
+  )
+}
