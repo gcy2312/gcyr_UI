@@ -6,18 +6,12 @@ import * as S from './Link.styles'
 const Link = (props: LinkProps): JSX.Element => {
   const { id, type, label, href, icon } = props
 
-  let StyledLink
-
-  switch (type) {
-    case 'icon':
-      StyledLink = S.IconLink
-      break
-    case 'button':
-      StyledLink = S.BtnLink
-      break
-    default:
-      StyledLink = S.DefaultLink
+  const linkTypes = {
+    default: S.DefaultLink,
+    button: S.BtnLink,
+    icon: S.IconLink,
   }
+  const StyledLink = linkTypes[type]
 
   return (
     <StyledLink id={id} href={href}>
